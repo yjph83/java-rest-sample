@@ -41,7 +41,7 @@ public class ReturnJsonStr {
 
     /**
      * <p>说明：获取代码</p>
-     * <p>时间：2013-07-14 14:21:41</p>
+     * <p>时间：2018-03-06 14:02</p>
      * @return 代码
      */
     public String getCode() {
