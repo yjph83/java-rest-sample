@@ -4,9 +4,9 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://172.17.123.134:3306/springbootdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+        url: jdbc:mysql://172.17.123.138:3306/springbootdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
         username: root
-        password: chbigdata
+        password: chcloud20180309
         driver-class-name: com.mysql.jdbc.Driver
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
@@ -20,17 +20,25 @@ spring:
         validationQuery: select 'x'
         testWhileIdle: true
         testOnBorrow: false
-        testOnReturn: false
+        testOnRetu+rn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
+
+    # 使用flyway数据脚本版本控制和数据迁移
+    flyway:
+        baseline-on-migrate: true
+        table: t_schema_version
+        encoding: utf-8
+        locations: classpath:db/migration,classpath:db/dev
 
 mybatis:
   mapper-locations: classpath*:mybatis/*.xml
   type-aliases-package: com.changhong.cloud.javarestsmaple.dao
-
+  config-location: classpath:/mybatis-config.xml
 #pagehelper
 pagehelper:
     helperDialect: mysql
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
